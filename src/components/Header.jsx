@@ -1,4 +1,4 @@
-import investmentLogog from "../../public/investment-calculator-logo.png";
+import investmentLogog from "../assets/investment-calculator-logo.png";
 
 function Header() {
   return (
