@@ -1,10 +1,22 @@
-export default function InputGroup({ forlabel, labelText, type, ...props }) {
+export default function InputGroup({
+  forlabel,
+  labelText,
+  onValueChange,
+  newValue,
+  ...props
+}) {
   return (
     <>
-      <div {...props}>
+      <p>
         <label htmlFor={forlabel}>{labelText}</label>
-        <input type={type} name={forlabel} />
-      </div>
+        <input
+          type="number"
+          onChange={(e) => onValueChange(forlabel, e.target.value)}
+          name={forlabel}
+          value={newValue}
+          required
+        />
+      </p>
     </>
   );
 }
