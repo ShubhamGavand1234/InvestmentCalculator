@@ -1,36 +1,20 @@
 import { useState } from "react";
 import InputGroup from "./InputGroup";
 
-export default function UserInput() {
-  const [userInput, setUserInput] = useState({
-    initialInvestment: 10000,
-    annualInvestment: 1299,
-    expectedReturn: 6,
-    duration: 10,
-  });
-
-  function handleChange(inputIdentifier, updatedValue) {
-    setUserInput((prevUserInput) => {
-      return {
-        ...prevUserInput,
-        [inputIdentifier]: updatedValue,
-      };
-    });
-  }
-
+export default function UserInput({ onChangeInput, userInput }) {
   return (
     <section id="user-input">
       <div className="input-group">
         <InputGroup
           forlabel="initialInvestment"
           labelText="Initial InvestMent"
-          onValueChange={handleChange}
+          onValueChange={onChangeInput}
           newValue={userInput.initialInvestment}
         />
         <InputGroup
           forlabel="annualInvestment"
           labelText="Annual InvestMent"
-          onValueChange={handleChange}
+          onValueChange={onChangeInput}
           newValue={userInput.annualInvestment}
         />
       </div>
@@ -38,13 +22,13 @@ export default function UserInput() {
         <InputGroup
           forlabel="expectedReturn"
           labelText="Expected Return"
-          onValueChange={handleChange}
+          onValueChange={onChangeInput}
           newValue={userInput.expectedReturn}
         />
         <InputGroup
           forlabel="duration"
           labelText="Duration"
-          onValueChange={handleChange}
+          onValueChange={onChangeInput}
           newValue={userInput.duration}
         />
       </div>
